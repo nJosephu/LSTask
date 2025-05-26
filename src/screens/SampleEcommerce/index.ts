@@ -1,1 +1,0 @@
-export { SampleEcommerce } from "./SampleEcommerce";

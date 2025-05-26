@@ -1,5 +1,4 @@
-import React from "react";
-import { Card, CardContent } from "../../../../components/ui/card";
+import { Card, CardContent } from "../../../components/ui/card";
 
 export const TestimonialsSection = (): JSX.Element => {
   // Testimonial data
@@ -56,7 +55,7 @@ export const TestimonialsSection = (): JSX.Element => {
                         alt="Empty star"
                         src="/icn-bx-star.svg"
                       />
-                    ),
+                    )
                   )}
                 </div>
 

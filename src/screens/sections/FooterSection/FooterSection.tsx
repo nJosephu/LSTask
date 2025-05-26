@@ -1,8 +1,7 @@
 import { FacebookIcon, InstagramIcon, TwitterIcon } from "lucide-react";
-import React from "react";
-import { Button } from "../../../../components/ui/button";
-import { Input } from "../../../../components/ui/input";
-import { Separator } from "../../../../components/ui/separator";
+import { Button } from "../../../components/ui/button";
+import { Input } from "../../../components/ui/input";
+import { Separator } from "../../../components/ui/separator";
 
 export const FooterSection = (): JSX.Element => {
   const footerCategories = [

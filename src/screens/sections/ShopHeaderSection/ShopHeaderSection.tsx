@@ -14,9 +14,9 @@ import {
   YoutubeIcon,
 } from "lucide-react";
 import React, { useState } from "react";
-import { Badge } from "../../../../components/ui/badge";
-import { Button } from "../../../../components/ui/button";
-import { Card, CardContent } from "../../../../components/ui/card";
+import { Badge } from "../../../components/ui/badge";
+import { Button } from "../../../components/ui/button";
+import { Card, CardContent } from "../../../components/ui/card";
 
 const socialIcons = [
   { icon: <FacebookIcon className="w-4 h-4 text-white" />, alt: "Facebook" },
@@ -117,7 +117,7 @@ export const ShopHeaderSection = (): JSX.Element => {
                   <div
                     className={`flex items-center ${
                       item.active ? "text-[#252b42]" : "text-[#727272]"
-                    } text-sm tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica] hover:text-[#252b42] transition-colors`}
+                    } text-sm tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica] hover:text-[#252b42] cursor-pointer transition-colors`}
                   >
                     {item.name}
                     {item.hasDropdown && (
@@ -139,18 +139,28 @@ export const ShopHeaderSection = (): JSX.Element => {
               <span className="hidden sm:inline">Login / Register</span>
             </Button>
 
-            <Button variant="ghost" size="icon" className="p-3 hover:bg-[#23a6f0]/10">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="p-3 hover:bg-[#23a6f0]/10"
+            >
               <SearchIcon className="w-4 h-4 text-[#23a6f0]" />
             </Button>
 
-            <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
+            <Button
+              variant="ghost"
+              className="p-3 flex items-center hover:bg-[#23a6f0]/10"
+            >
               <ShoppingCartIcon className="w-4 h-4 text-[#23a6f0]" />
               <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
                 1
               </Badge>
             </Button>
 
-            <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
+            <Button
+              variant="ghost"
+              className="p-3 flex items-center hover:bg-[#23a6f0]/10"
+            >
               <HeartIcon className="w-4 h-4 text-[#23a6f0]" />
               <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
                 1
@@ -183,7 +193,9 @@ export const ShopHeaderSection = (): JSX.Element => {
                     <li key={index}>
                       <div
                         className={`flex items-center justify-between p-3 rounded-lg ${
-                          item.active ? "bg-[#23a6f0]/10 text-[#252b42]" : "text-[#727272]"
+                          item.active
+                            ? "bg-[#23a6f0]/10 text-[#252b42]"
+                            : "text-[#727272]"
                         } text-lg tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica] hover:bg-[#23a6f0]/5 transition-colors`}
                       >
                         {item.name}
@@ -206,16 +218,26 @@ export const ShopHeaderSection = (): JSX.Element => {
                     Login / Register
                   </Button>
                   <div className="flex justify-center gap-4">
-                    <Button variant="ghost" size="icon" className="p-3 hover:bg-[#23a6f0]/10">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="p-3 hover:bg-[#23a6f0]/10"
+                    >
                       <SearchIcon className="w-4 h-4 text-[#23a6f0]" />
                     </Button>
-                    <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
+                    <Button
+                      variant="ghost"
+                      className="p-3 flex items-center hover:bg-[#23a6f0]/10"
+                    >
                       <ShoppingCartIcon className="w-4 h-4 text-[#23a6f0]" />
                       <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
                         1
                       </Badge>
                     </Button>
-                    <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
+                    <Button
+                      variant="ghost"
+                      className="p-3 flex items-center hover:bg-[#23a6f0]/10"
+                    >
                       <HeartIcon className="w-4 h-4 text-[#23a6f0]" />
                       <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
                         1
