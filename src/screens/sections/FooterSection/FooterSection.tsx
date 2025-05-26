@@ -58,8 +58,8 @@ export const FooterSection = (): JSX.Element => {
 
       {/* Main footer links section */}
       <div className="w-full bg-white">
-        <div className="max-w-[1050px] mx-auto px-4 py-[50px]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="max-w-[1050px] mx-auto px-4 py-[50px] lg:px-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1fr_1fr_1fr_1fr_2fr] gap-8">
             {footerCategories.map((category, index) => (
               <div key={index} className="flex flex-col items-start gap-5">
                 <h3 className="font-h-5 text-[#252b42] font-[number:var(--h-5-font-weight)] text-[length:var(--h-5-font-size)] tracking-[var(--h-5-letter-spacing)] leading-[var(--h-5-line-height)] [font-style:var(--h-5-font-style)]">
@@ -85,12 +85,12 @@ export const FooterSection = (): JSX.Element => {
                 Get In Touch
               </h3>
               <div className="w-full">
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-2 lg:flex-row lg:gap-0">
                   <Input
                     placeholder="Your Email"
                     className="h-[58px] sm:rounded-r-none bg-[#f8f8f8] border-[#e6e6e6] font-['Montserrat',Helvetica] text-[#727272] text-sm"
                   />
-                  <Button className="h-[58px] sm:rounded-l-none bg-[#23a6f0] border border-[#e6e6e6] font-['Montserrat',Helvetica] text-white text-sm whitespace-nowrap">
+                  <Button className="h-[58px] sm:rounded-l-none bg-[#23a6f0]  font-['Montserrat',Helvetica] text-white text-sm whitespace-nowrap">
                     Subscribe
                   </Button>
                 </div>
