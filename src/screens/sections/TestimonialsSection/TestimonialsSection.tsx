@@ -25,7 +25,7 @@ export const TestimonialsSection = (): JSX.Element => {
 
   return (
     <section className="w-full bg-white py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-[1050px]">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Testimonial Column */}
           <div className="w-full md:w-[438px] flex flex-col items-center gap-7">
@@ -33,7 +33,7 @@ export const TestimonialsSection = (): JSX.Element => {
               {testimonial.title}
             </h2>
 
-            <Card className="w-full bg-white rounded-[5px] shadow-none">
+            <Card className="w-full bg-white rounded-[5px] shadow-none border-0">
               <CardContent className="flex flex-col items-center gap-5 p-[30px]">
                 {/* User Avatar */}
                 <div className="w-[90px] h-[90px] bg-[url(/-user-1.png)] bg-cover bg-center rounded-full" />
