@@ -252,7 +252,7 @@ export const ShopHeaderSection = (): JSX.Element => {
       </div>
 
       {/* Furniture cards grid */}
-      <div className="container mx-auto py-20">
+      <div className="container mx-auto py-5 md:py-20">
         <div className="flex flex-col lg:flex-row gap-[15px]">
           {/* Large card on the left */}
           <Card className="w-full lg:w-[452px] h-[300px] lg:h-[616px] border-0 rounded-none overflow-hidden">
