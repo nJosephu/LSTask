@@ -1,12 +1,13 @@
 import { BarChart2Icon, CalendarIcon, ChevronRightIcon } from "lucide-react";
 import React from "react";
-import { Badge } from "../../../../components/ui/badge";
-import { Card, CardContent } from "../../../../components/ui/card";
+import { Badge } from "../../components/ui/badge";
+import { Card, CardContent } from "../../components/ui/card";
 
+// Blog post data for mapping
 const blogPosts = [
   {
     id: 1,
-    image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+    image: "..//unsplash-hhdhcfaifhu.png",
     tags: ["Google", "Trending", "New"],
     title: "Loudest à la Madison #1 (L'integral)",
     description:
@@ -16,7 +17,7 @@ const blogPosts = [
   },
   {
     id: 2,
-    image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
+    image: "..//unsplash-tveqstc2uz8.png",
     tags: ["Google", "Trending", "New"],
     title: "Loudest à la Madison #1 (L'integral)",
     description:
@@ -26,7 +27,7 @@ const blogPosts = [
   },
   {
     id: 3,
-    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
+    image: "..//unsplash-degu-ocub1y.png",
     tags: ["Google", "Trending", "New"],
     title: "Loudest à la Madison #1 (L'integral)",
     description:
