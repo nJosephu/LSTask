@@ -1,11 +1,10 @@
 import { FacebookIcon, InstagramIcon, TwitterIcon } from "lucide-react";
 import React from "react";
-import { Button } from "../../components/ui/button";
-import { Input } from "../../components/ui/input";
-import { Separator } from "../../components/ui/separator";
+import { Button } from "../../../../components/ui/button";
+import { Input } from "../../../../components/ui/input";
+import { Separator } from "../../../../components/ui/separator";
 
 export const FooterSection = (): JSX.Element => {
-  // Footer link categories data
   const footerCategories = [
     {
       title: "Company Info",
@@ -35,8 +34,8 @@ export const FooterSection = (): JSX.Element => {
       {/* Top section with brand and social icons */}
       <div className="w-full bg-light-gray-1">
         <div className="max-w-[1050px] mx-auto px-4 py-10">
-          <div className="flex justify-between items-center">
-            <div className="flex flex-col items-start gap-2.5">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div className="flex flex-col items-center sm:items-start gap-2.5">
               <h2 className="font-['Montserrat',Helvetica] font-bold text-[#252b42] text-2xl tracking-[0.10px] leading-8">
                 Bandage
               </h2>
@@ -61,13 +60,9 @@ export const FooterSection = (): JSX.Element => {
       {/* Main footer links section */}
       <div className="w-full bg-white">
         <div className="max-w-[1050px] mx-auto px-4 py-[50px]">
-          <div className="flex flex-wrap gap-[30px]">
-            {/* Map through footer categories */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {footerCategories.map((category, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-start gap-5 w-[148px]"
-              >
+              <div key={index} className="flex flex-col items-start gap-5">
                 <h3 className="font-h-5 text-[#252b42] font-[number:var(--h-5-font-weight)] text-[length:var(--h-5-font-size)] tracking-[var(--h-5-letter-spacing)] leading-[var(--h-5-line-height)] [font-style:var(--h-5-font-style)]">
                   {category.title}
                 </h3>
@@ -85,18 +80,18 @@ export const FooterSection = (): JSX.Element => {
               </div>
             ))}
 
-            {/* Get In Touch section with email form */}
-            <div className="flex flex-col items-start gap-5 w-[321px]">
+            {/* Get In Touch section */}
+            <div className="flex flex-col items-start gap-5 col-span-1 sm:col-span-2 md:col-span-1">
               <h3 className="font-h-5 text-[#252b42] font-[number:var(--h-5-font-weight)] text-[length:var(--h-5-font-size)] tracking-[var(--h-5-letter-spacing)] leading-[var(--h-5-line-height)] [font-style:var(--h-5-font-style)]">
                 Get In Touch
               </h3>
               <div className="w-full">
-                <div className="flex">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <Input
                     placeholder="Your Email"
-                    className="h-[58px] rounded-r-none bg-[#f8f8f8] border-[#e6e6e6] font-['Montserrat',Helvetica] text-[#727272] text-sm"
+                    className="h-[58px] sm:rounded-r-none bg-[#f8f8f8] border-[#e6e6e6] font-['Montserrat',Helvetica] text-[#727272] text-sm"
                   />
-                  <Button className="h-[58px] rounded-l-none bg-[#23a6f0] border border-[#e6e6e6] font-['Montserrat',Helvetica] text-white text-sm">
+                  <Button className="h-[58px] sm:rounded-l-none bg-[#23a6f0] border border-[#e6e6e6] font-['Montserrat',Helvetica] text-white text-sm whitespace-nowrap">
                     Subscribe
                   </Button>
                 </div>
@@ -112,8 +107,8 @@ export const FooterSection = (): JSX.Element => {
       {/* Copyright section */}
       <div className="w-full bg-[#f9f9f9]">
         <div className="max-w-[1050px] mx-auto px-4 py-[25px]">
-          <div className="flex items-center">
-            <p className="font-h-6 text-[#727272] font-[number:var(--h-6-font-weight)] text-[length:var(--h-6-font-size)] tracking-[var(--h-6-letter-spacing)] leading-[var(--h-6-line-height)] [font-style:var(--h-6-font-style)]">
+          <div className="flex items-center justify-center sm:justify-start">
+            <p className="font-h-6 text-[#727272] font-[number:var(--h-6-font-weight)] text-[length:var(--h-6-font-size)] text-center sm:text-left tracking-[var(--h-6-letter-spacing)] leading-[var(--h-6-line-height)] [font-style:var(--h-6-font-style)]">
               Made With Love By Finland All Right Reserved
             </p>
           </div>

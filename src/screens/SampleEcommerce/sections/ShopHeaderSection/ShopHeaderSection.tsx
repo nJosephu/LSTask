@@ -4,17 +4,19 @@ import {
   HeartIcon,
   InstagramIcon,
   MailIcon,
+  MenuIcon,
   PhoneIcon,
   SearchIcon,
   ShoppingCartIcon,
   TwitterIcon,
   UserIcon,
+  XIcon,
   YoutubeIcon,
 } from "lucide-react";
-import React from "react";
-import { Badge } from "../../components/ui/badge";
-import { Button } from "../../components/ui/button";
-import { Card, CardContent } from "../../components/ui/card";
+import React, { useState } from "react";
+import { Badge } from "../../../../components/ui/badge";
+import { Button } from "../../../../components/ui/button";
+import { Card, CardContent } from "../../../../components/ui/card";
 
 const socialIcons = [
   { icon: <FacebookIcon className="w-4 h-4 text-white" />, alt: "Facebook" },
@@ -32,20 +34,20 @@ const navItems = [
   { name: "Pages", active: false },
 ];
 
-const furnitureCards = [
-  { size: "large", position: "left" },
-  { size: "medium", position: "top" },
-  { size: "small", position: "bottom-left" },
-  { size: "small", position: "bottom-right" },
-];
-
 export const ShopHeaderSection = (): JSX.Element => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <section className="w-full bg-white">
+      {/* Top bar with contact info and social media */}
       <div className="w-full bg-[#23856d]">
         <div className="container mx-auto py-2">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-2">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
+            <div className="flex flex-col md:flex-row items-center gap-2">
               <div className="flex items-center gap-1 p-2.5 rounded-[5px] shadow-[0px_4px_4px_#00000040]">
                 <PhoneIcon className="w-4 h-4 text-white" />
                 <span className="text-white text-sm tracking-[0.20px] leading-6 whitespace-nowrap font-bold [font-family:'Montserrat',Helvetica]">
@@ -61,7 +63,7 @@ export const ShopHeaderSection = (): JSX.Element => {
               </div>
             </div>
 
-            <div className="text-white text-sm tracking-[0.20px] leading-6 whitespace-nowrap font-bold [font-family:'Montserrat',Helvetica]">
+            <div className="text-white text-sm tracking-[0.20px] leading-6 text-center md:text-left whitespace-nowrap font-bold [font-family:'Montserrat',Helvetica]">
               Follow Us and get a chance to win 80% off
             </div>
 
@@ -75,7 +77,7 @@ export const ShopHeaderSection = (): JSX.Element => {
                     key={index}
                     variant="ghost"
                     size="icon"
-                    className="p-1 h-auto w-auto"
+                    className="p-1 h-auto w-auto hover:bg-white/10"
                   >
                     {social.icon}
                   </Button>
@@ -86,20 +88,36 @@ export const ShopHeaderSection = (): JSX.Element => {
         </div>
       </div>
 
+      {/* Main navigation */}
       <div className="container mx-auto py-4">
         <div className="flex justify-between items-center">
           <div className="[font-family:'Montserrat',Helvetica] font-bold text-[#252b42] text-2xl tracking-[0.10px] leading-8">
             Bandage
           </div>
 
-          <nav className="flex-1 mx-10">
+          {/* Mobile menu button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={toggleMobileMenu}
+          >
+            {isMobileMenuOpen ? (
+              <XIcon className="h-6 w-6" />
+            ) : (
+              <MenuIcon className="h-6 w-6" />
+            )}
+          </Button>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex flex-1 mx-10">
             <ul className="flex items-center gap-[15px]">
               {navItems.map((item, index) => (
                 <li key={index} className="relative">
                   <div
                     className={`flex items-center ${
                       item.active ? "text-[#252b42]" : "text-[#727272]"
-                    } text-sm tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica]`}
+                    } text-sm tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica] hover:text-[#252b42] transition-colors`}
                   >
                     {item.name}
                     {item.hasDropdown && (
@@ -111,27 +129,28 @@ export const ShopHeaderSection = (): JSX.Element => {
             </ul>
           </nav>
 
-          <div className="flex items-center">
+          {/* Desktop Actions */}
+          <div className="hidden md:flex items-center gap-2">
             <Button
               variant="ghost"
-              className="text-[#23a6f0] font-bold text-sm [font-family:'Montserrat',Helvetica]"
+              className="text-[#23a6f0] font-bold text-sm [font-family:'Montserrat',Helvetica] hover:bg-[#23a6f0]/10"
             >
               <UserIcon className="w-4 h-4 mr-2" />
-              Login / Register
+              <span className="hidden sm:inline">Login / Register</span>
             </Button>
 
-            <Button variant="ghost" size="icon" className="p-3">
+            <Button variant="ghost" size="icon" className="p-3 hover:bg-[#23a6f0]/10">
               <SearchIcon className="w-4 h-4 text-[#23a6f0]" />
             </Button>
 
-            <Button variant="ghost" className="p-3 flex items-center">
+            <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
               <ShoppingCartIcon className="w-4 h-4 text-[#23a6f0]" />
               <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
                 1
               </Badge>
             </Button>
 
-            <Button variant="ghost" className="p-3 flex items-center">
+            <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
               <HeartIcon className="w-4 h-4 text-[#23a6f0]" />
               <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
                 1
@@ -139,11 +158,82 @@ export const ShopHeaderSection = (): JSX.Element => {
             </Button>
           </div>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden fixed inset-0 z-50 bg-white">
+            <div className="flex flex-col h-full">
+              <div className="flex justify-between items-center p-4 border-b border-gray-200">
+                <div className="[font-family:'Montserrat',Helvetica] font-bold text-[#252b42] text-2xl tracking-[0.10px] leading-8">
+                  Bandage
+                </div>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={toggleMobileMenu}
+                  className="hover:bg-gray-100"
+                >
+                  <XIcon className="h-6 w-6" />
+                </Button>
+              </div>
+
+              <nav className="flex-1 overflow-y-auto p-4">
+                <ul className="flex flex-col gap-4">
+                  {navItems.map((item, index) => (
+                    <li key={index}>
+                      <div
+                        className={`flex items-center justify-between p-3 rounded-lg ${
+                          item.active ? "bg-[#23a6f0]/10 text-[#252b42]" : "text-[#727272]"
+                        } text-lg tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica] hover:bg-[#23a6f0]/5 transition-colors`}
+                      >
+                        {item.name}
+                        {item.hasDropdown && (
+                          <ChevronDownIcon className="w-4 h-4" />
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
+              <div className="border-t border-gray-200 p-4 bg-gray-50">
+                <div className="flex flex-col gap-4">
+                  <Button
+                    variant="ghost"
+                    className="w-full justify-center text-[#23a6f0] font-bold text-sm [font-family:'Montserrat',Helvetica] hover:bg-[#23a6f0]/10 py-3"
+                  >
+                    <UserIcon className="w-4 h-4 mr-2" />
+                    Login / Register
+                  </Button>
+                  <div className="flex justify-center gap-4">
+                    <Button variant="ghost" size="icon" className="p-3 hover:bg-[#23a6f0]/10">
+                      <SearchIcon className="w-4 h-4 text-[#23a6f0]" />
+                    </Button>
+                    <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
+                      <ShoppingCartIcon className="w-4 h-4 text-[#23a6f0]" />
+                      <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
+                        1
+                      </Badge>
+                    </Button>
+                    <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
+                      <HeartIcon className="w-4 h-4 text-[#23a6f0]" />
+                      <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
+                        1
+                      </Badge>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
+      {/* Furniture cards grid */}
       <div className="container mx-auto py-20">
-        <div className="flex gap-[15px]">
-          <Card className="w-[452px] h-[616px] border-0 rounded-none overflow-hidden">
+        <div className="flex flex-col lg:flex-row gap-[15px]">
+          {/* Large card on the left */}
+          <Card className="w-full lg:w-[452px] h-[300px] lg:h-[616px] border-0 rounded-none overflow-hidden">
             <CardContent className="p-0 h-full">
               <div
                 className="h-full bg-cover bg-center"
@@ -164,7 +254,9 @@ export const ShopHeaderSection = (): JSX.Element => {
             </CardContent>
           </Card>
 
+          {/* Right column with 3 cards */}
           <div className="flex flex-col gap-4 flex-1">
+            {/* Top medium card */}
             <Card className="w-full h-[300px] border-0 rounded-none overflow-hidden">
               <CardContent className="p-0 h-full">
                 <div
@@ -186,8 +278,10 @@ export const ShopHeaderSection = (): JSX.Element => {
               </CardContent>
             </Card>
 
-            <div className="flex gap-4">
-              <Card className="w-1/2 h-[300px] border-0 rounded-none overflow-hidden">
+            {/* Bottom two small cards */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              {/* Bottom left small card */}
+              <Card className="w-full sm:w-1/2 h-[300px] border-0 rounded-none overflow-hidden">
                 <CardContent className="p-0 h-full">
                   <div
                     className="h-full bg-cover bg-center"
@@ -208,7 +302,8 @@ export const ShopHeaderSection = (): JSX.Element => {
                 </CardContent>
               </Card>
 
-              <Card className="w-1/2 h-[300px] border-0 rounded-none overflow-hidden">
+              {/* Bottom right small card */}
+              <Card className="w-full sm:w-1/2 h-[300px] border-0 rounded-none overflow-hidden">
                 <CardContent className="p-0 h-full">
                   <div
                     className="h-full bg-cover bg-center"
