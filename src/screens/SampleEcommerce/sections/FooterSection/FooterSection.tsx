@@ -86,7 +86,7 @@ export const FooterSection = (): JSX.Element => {
                 Get In Touch
               </h3>
               <div className="w-full">
-                <div className="flex flex-col sm:flex-row gap-2">
+                <div className="flex flex-col gap-2">
                   <Input
                     placeholder="Your Email"
                     className="h-[58px] sm:rounded-r-none bg-[#f8f8f8] border-[#e6e6e6] font-['Montserrat',Helvetica] text-[#727272] text-sm"
