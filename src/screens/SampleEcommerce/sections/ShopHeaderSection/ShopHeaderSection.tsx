@@ -237,7 +237,7 @@ export const ShopHeaderSection = (): JSX.Element => {
             <CardContent className="p-0 h-full">
               <div
                 className="h-full bg-cover bg-center"
-                style={{ backgroundImage: "url(..//card-cover-5.png)" }}
+                style={{ backgroundImage: "url(/card-cover-5.png)" }}
               >
                 <div className="flex flex-col items-start justify-center gap-[5px] p-6 h-full">
                   <span className="text-success-text-color text-sm tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica]">
@@ -261,7 +261,7 @@ export const ShopHeaderSection = (): JSX.Element => {
               <CardContent className="p-0 h-full">
                 <div
                   className="h-full bg-cover bg-center"
-                  style={{ backgroundImage: "url(..//card-cover-6.png)" }}
+                  style={{ backgroundImage: "url(/card-cover-6.png)" }}
                 >
                   <div className="flex flex-col items-start justify-center gap-[5px] p-6 h-full">
                     <span className="text-success-text-color text-sm tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica]">
@@ -285,7 +285,7 @@ export const ShopHeaderSection = (): JSX.Element => {
                 <CardContent className="p-0 h-full">
                   <div
                     className="h-full bg-cover bg-center"
-                    style={{ backgroundImage: "url(..//card-cover-6-1.png)" }}
+                    style={{ backgroundImage: "url(/card-cover-6-1.png)" }}
                   >
                     <div className="flex flex-col items-start justify-center gap-[5px] p-6 h-full">
                       <span className="text-success-text-color text-sm tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica]">
@@ -307,7 +307,7 @@ export const ShopHeaderSection = (): JSX.Element => {
                 <CardContent className="p-0 h-full">
                   <div
                     className="h-full bg-cover bg-center"
-                    style={{ backgroundImage: "url(..//card-cover-7.png)" }}
+                    style={{ backgroundImage: "url(/card-cover-7.png)" }}
                   >
                     <div className="flex flex-col items-start justify-center gap-[5px] p-6 h-full">
                       <span className="text-success-text-color text-sm tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica]">
