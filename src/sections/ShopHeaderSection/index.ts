@@ -1,1 +1,0 @@
-export { ShopHeaderSection } from "./ShopHeaderSection";
