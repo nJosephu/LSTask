@@ -48,7 +48,7 @@ export const ShopHeaderSection = (): JSX.Element => {
         <div className="container mx-auto py-2">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0">
             <div className="flex flex-col md:flex-row items-center gap-2">
-              <div className="flex items-center gap-1 p-2.5 rounded-[5px] shadow-[0px_4px_4px_#00000040]">
+              <div className="flex items-center gap-1 p-2.5">
                 <PhoneIcon className="w-4 h-4 text-white" />
                 <span className="text-white text-sm tracking-[0.20px] leading-6 whitespace-nowrap font-bold [font-family:'Montserrat',Helvetica]">
                   (225) 555-0118
