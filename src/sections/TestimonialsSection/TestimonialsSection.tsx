@@ -1,8 +1,7 @@
 import React from "react";
-import { Card, CardContent } from "../../../../components/ui/card";
+import { Card, CardContent } from "../../components/ui/card";
 
 export const TestimonialsSection = (): JSX.Element => {
-  // Testimonial data
   const testimonial = {
     title: "What they say about us",
     author: "Regina Miles",
@@ -11,7 +10,6 @@ export const TestimonialsSection = (): JSX.Element => {
     text: "Slate helps you see how many more days you need to work to reach your financial goal.",
   };
 
-  // Gallery images data
   const galleryImages = [
     { src: "/unsplash-0y8p69vwiym.svg", alt: "Unsplash" },
     { src: "/unsplash-ah7yixwrtks.svg", alt: "Unsplash" },
@@ -28,7 +26,6 @@ export const TestimonialsSection = (): JSX.Element => {
     <section className="w-full bg-white py-20">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Testimonial Column */}
           <div className="w-full md:w-[438px] flex flex-col items-center gap-7">
             <h2 className="font-['Montserrat',Helvetica] font-bold text-2xl text-[#252b42] tracking-[0.10px] leading-8">
               {testimonial.title}
@@ -36,10 +33,8 @@ export const TestimonialsSection = (): JSX.Element => {
 
             <Card className="w-full bg-white rounded-[5px] shadow-none">
               <CardContent className="flex flex-col items-center gap-5 p-[30px]">
-                {/* User Avatar */}
                 <div className="w-[90px] h-[90px] bg-[url(/-user-1.png)] bg-cover bg-center rounded-full" />
 
-                {/* Rating Stars */}
                 <div className="flex items-center gap-[5px]">
                   {[...Array(5)].map((_, i) =>
                     i < testimonial.rating ? (
@@ -60,12 +55,10 @@ export const TestimonialsSection = (): JSX.Element => {
                   )}
                 </div>
 
-                {/* Testimonial Text */}
                 <p className="text-[#727272] text-sm text-center tracking-[0.20px] leading-6 font-['Montserrat',Helvetica] font-bold">
                   {testimonial.text}
                 </p>
 
-                {/* Author Info */}
                 <div className="flex flex-col items-center">
                   <span className="font-link text-[#23a6f0] text-[length:var(--link-font-size)] text-center tracking-[var(--link-letter-spacing)] leading-[var(--link-line-height)]">
                     {testimonial.author}
@@ -78,7 +71,6 @@ export const TestimonialsSection = (): JSX.Element => {
             </Card>
           </div>
 
-          {/* Gallery Grid */}
           <div className="w-full md:w-[464px]">
             <div className="grid grid-cols-3 gap-[18px]">
               {galleryImages.slice(0, 6).map((image, index) => (
