@@ -77,7 +77,7 @@ export const ShopHeaderSection = (): JSX.Element => {
                     key={index}
                     variant="ghost"
                     size="icon"
-                    className="p-1 h-auto w-auto"
+                    className="p-1 h-auto w-auto hover:bg-white/10"
                   >
                     {social.icon}
                   </Button>
@@ -117,7 +117,7 @@ export const ShopHeaderSection = (): JSX.Element => {
                   <div
                     className={`flex items-center ${
                       item.active ? "text-[#252b42]" : "text-[#727272]"
-                    } text-sm tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica]`}
+                    } text-sm tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica] hover:text-[#252b42] transition-colors`}
                   >
                     {item.name}
                     {item.hasDropdown && (
@@ -133,24 +133,24 @@ export const ShopHeaderSection = (): JSX.Element => {
           <div className="hidden md:flex items-center gap-2">
             <Button
               variant="ghost"
-              className="text-[#23a6f0] font-bold text-sm [font-family:'Montserrat',Helvetica]"
+              className="text-[#23a6f0] font-bold text-sm [font-family:'Montserrat',Helvetica] hover:bg-[#23a6f0]/10"
             >
               <UserIcon className="w-4 h-4 mr-2" />
               <span className="hidden sm:inline">Login / Register</span>
             </Button>
 
-            <Button variant="ghost" size="icon" className="p-3">
+            <Button variant="ghost" size="icon" className="p-3 hover:bg-[#23a6f0]/10">
               <SearchIcon className="w-4 h-4 text-[#23a6f0]" />
             </Button>
 
-            <Button variant="ghost" className="p-3 flex items-center">
+            <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
               <ShoppingCartIcon className="w-4 h-4 text-[#23a6f0]" />
               <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
                 1
               </Badge>
             </Button>
 
-            <Button variant="ghost" className="p-3 flex items-center">
+            <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
               <HeartIcon className="w-4 h-4 text-[#23a6f0]" />
               <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
                 1
@@ -163,7 +163,7 @@ export const ShopHeaderSection = (): JSX.Element => {
         {isMobileMenuOpen && (
           <div className="md:hidden fixed inset-0 z-50 bg-white">
             <div className="flex flex-col h-full">
-              <div className="flex justify-between items-center p-4 border-b">
+              <div className="flex justify-between items-center p-4 border-b border-gray-200">
                 <div className="[font-family:'Montserrat',Helvetica] font-bold text-[#252b42] text-2xl tracking-[0.10px] leading-8">
                   Bandage
                 </div>
@@ -171,6 +171,7 @@ export const ShopHeaderSection = (): JSX.Element => {
                   variant="ghost"
                   size="icon"
                   onClick={toggleMobileMenu}
+                  className="hover:bg-gray-100"
                 >
                   <XIcon className="h-6 w-6" />
                 </Button>
@@ -181,9 +182,9 @@ export const ShopHeaderSection = (): JSX.Element => {
                   {navItems.map((item, index) => (
                     <li key={index}>
                       <div
-                        className={`flex items-center justify-between ${
-                          item.active ? "text-[#252b42]" : "text-[#727272]"
-                        } text-lg tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica]`}
+                        className={`flex items-center justify-between p-3 rounded-lg ${
+                          item.active ? "bg-[#23a6f0]/10 text-[#252b42]" : "text-[#727272]"
+                        } text-lg tracking-[0.20px] leading-6 font-bold [font-family:'Montserrat',Helvetica] hover:bg-[#23a6f0]/5 transition-colors`}
                       >
                         {item.name}
                         {item.hasDropdown && (
@@ -195,26 +196,26 @@ export const ShopHeaderSection = (): JSX.Element => {
                 </ul>
               </nav>
 
-              <div className="border-t p-4">
+              <div className="border-t border-gray-200 p-4 bg-gray-50">
                 <div className="flex flex-col gap-4">
                   <Button
                     variant="ghost"
-                    className="w-full justify-center text-[#23a6f0] font-bold text-sm [font-family:'Montserrat',Helvetica]"
+                    className="w-full justify-center text-[#23a6f0] font-bold text-sm [font-family:'Montserrat',Helvetica] hover:bg-[#23a6f0]/10 py-3"
                   >
                     <UserIcon className="w-4 h-4 mr-2" />
                     Login / Register
                   </Button>
                   <div className="flex justify-center gap-4">
-                    <Button variant="ghost" size="icon" className="p-3">
+                    <Button variant="ghost" size="icon" className="p-3 hover:bg-[#23a6f0]/10">
                       <SearchIcon className="w-4 h-4 text-[#23a6f0]" />
                     </Button>
-                    <Button variant="ghost" className="p-3 flex items-center">
+                    <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
                       <ShoppingCartIcon className="w-4 h-4 text-[#23a6f0]" />
                       <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
                         1
                       </Badge>
                     </Button>
-                    <Button variant="ghost" className="p-3 flex items-center">
+                    <Button variant="ghost" className="p-3 flex items-center hover:bg-[#23a6f0]/10">
                       <HeartIcon className="w-4 h-4 text-[#23a6f0]" />
                       <Badge className="ml-1 bg-transparent text-[#23a6f0] text-xs">
                         1
