@@ -4,7 +4,7 @@ import { Button } from "../../components/ui/button";
 export const CallToActionSection = (): JSX.Element => {
   return (
     <section className="relative w-full bg-white">
-      <div className="w-full h-[640px] bg-[url(/unsplash-xemajam-4ne.png)] bg-cover bg-center">
+      <div className="w-full bg-[url(/unsplash-xemajam-4ne.png)] bg-cover bg-center">
         <div className="flex flex-col items-center gap-6 pt-40 pb-28 mx-auto max-w-[1050px]">
           <div className="flex flex-col items-center gap-9 max-w-[607px]">
             <p className="font-['Montserrat',Helvetica] font-bold text-[#23a6f0] text-sm text-center tracking-[0.20px] leading-6">

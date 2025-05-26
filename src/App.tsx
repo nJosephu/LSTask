@@ -1,4 +1,3 @@
-import React from "react";
 import { BlogSection } from "./sections/BlogSection/BlogSection";
 import { CallToActionSection } from "./sections/CallToActionSection/CallToActionSection";
 import { FeaturesSection } from "./sections/FeaturesSection/FeaturesSection";
