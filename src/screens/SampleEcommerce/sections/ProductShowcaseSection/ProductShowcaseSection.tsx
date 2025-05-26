@@ -1,7 +1,22 @@
 import React, { useState } from "react";
 import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
+import { Skeleton } from "../../../../components/ui/skeleton";
 import { useGetProductsQuery } from "../../../../store/services/products";
+
+const ProductSkeleton = () => (
+  <Card className="w-full bg-white border-none shadow-none">
+    <Skeleton className="w-full h-[238px]" />
+    <CardContent className="flex flex-col items-center gap-2.5 pt-[25px] pb-[35px] px-[25px]">
+      <Skeleton className="h-6 w-3/4" />
+      <Skeleton className="h-6 w-1/2" />
+      <div className="flex items-start gap-[5px] py-[5px] px-[3px]">
+        <Skeleton className="h-6 w-16" />
+        <Skeleton className="h-6 w-16" />
+      </div>
+    </CardContent>
+  </Card>
+);
 
 export const ProductShowcaseSection = (): JSX.Element => {
   const [page, setPage] = useState(0);
@@ -45,33 +60,48 @@ export const ProductShowcaseSection = (): JSX.Element => {
         {/* Product grid */}
         <div className="w-full">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[30px] p-6">
-            {allProducts.map((product) => (
-              <Card
-                key={product.id}
-                className="w-full bg-white border-none shadow-none"
-              >
-                <div
-                  className="w-full h-[238px] bg-cover bg-center"
-                  style={{ backgroundImage: `url(${product.thumbnail})` }}
-                />
-                <CardContent className="flex flex-col items-center gap-2.5 pt-[25px] pb-[35px] px-[25px]">
-                  <h3 className="font-['Montserrat',Helvetica] font-bold text-[#252b42] text-base text-center tracking-[0.10px] leading-6">
-                    {product.title}
-                  </h3>
-                  <p className="font-['Montserrat',Helvetica] font-bold text-[#727272] text-sm text-center tracking-[0.20px] leading-6">
-                    {product.brand}
-                  </p>
-                  <div className="flex items-start gap-[5px] py-[5px] px-[3px]">
-                    <span className="font-['Montserrat',Helvetica] font-bold text-muted-color text-base text-center tracking-[0.10px] leading-6">
-                      ${product.price}
-                    </span>
-                    <span className="font-['Montserrat',Helvetica] font-bold text-[#23856d] text-base text-center tracking-[0.10px] leading-6">
-                      ${(product.price * (1 - product.discountPercentage / 100)).toFixed(2)}
-                    </span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+            {isLoading && !allProducts.length ? (
+              // Show skeletons when initially loading
+              Array.from({ length: 10 }).map((_, index) => (
+                <ProductSkeleton key={index} />
+              ))
+            ) : (
+              // Show actual products
+              allProducts.map((product) => (
+                <Card
+                  key={product.id}
+                  className="w-full bg-white border-none shadow-none"
+                >
+                  <div
+                    className="w-full h-[238px] bg-cover bg-center"
+                    style={{ backgroundImage: `url(${product.thumbnail})` }}
+                  />
+                  <CardContent className="flex flex-col items-center gap-2.5 pt-[25px] pb-[35px] px-[25px]">
+                    <h3 className="font-['Montserrat',Helvetica] font-bold text-[#252b42] text-base text-center tracking-[0.10px] leading-6">
+                      {product.title}
+                    </h3>
+                    <p className="font-['Montserrat',Helvetica] font-bold text-[#727272] text-sm text-center tracking-[0.20px] leading-6">
+                      {product.brand}
+                    </p>
+                    <div className="flex items-start gap-[5px] py-[5px] px-[3px]">
+                      <span className="font-['Montserrat',Helvetica] font-bold text-muted-color text-base text-center tracking-[0.10px] leading-6">
+                        ${product.price}
+                      </span>
+                      <span className="font-['Montserrat',Helvetica] font-bold text-[#23856d] text-base text-center tracking-[0.10px] leading-6">
+                        ${(product.price * (1 - product.discountPercentage / 100)).toFixed(2)}
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))
+            )}
+
+            {/* Show skeleton cards when loading more */}
+            {isFetching && !isLoading && (
+              Array.from({ length: 10 }).map((_, index) => (
+                <ProductSkeleton key={`loading-${index}`} />
+              ))
+            )}
           </div>
         </div>
 
